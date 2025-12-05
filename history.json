@@ -1,0 +1,42 @@
+[
+  {
+    "id": "e3bb200969b64518896bad9b4bb94abb.png",
+    "original_name": "ChatGPT_Image_Dec_5_2025_02_50_10_PM.png",
+    "label": "Healthy Guava",
+    "probs": {
+      "Anthracnose": 0.0009630670538172126,
+      "Fruit Fly": 0.08164234459400177,
+      "Healthy Guava": 0.9173946380615234
+    }
+  },
+  {
+    "id": "b56f005fd4954d409eff4ca15c8712cc.png",
+    "original_name": "ChatGPT_Image_Dec_5__2025__02_50_10_PM-removebg-preview.png",
+    "label": "Healthy Guava",
+    "probs": {
+      "Anthracnose": 0.00029963249107822776,
+      "Fruit Fly": 0.1273481845855713,
+      "Healthy Guava": 0.8723522424697876
+    }
+  },
+  {
+    "id": "a35be2c84d414ef6919c39cbd0318632.png",
+    "original_name": "ChatGPT_Image_Dec_5_2025_02_50_10_PM.png",
+    "label": "Healthy Guava",
+    "probs": {
+      "Anthracnose": 0.0009630670538172126,
+      "Fruit Fly": 0.08164234459400177,
+      "Healthy Guava": 0.9173946380615234
+    }
+  },
+  {
+    "id": "5b760ae4d7254e3da3806cab9ad8dd64.jpg",
+    "original_name": "600x600.jpg",
+    "label": "Fruit Fly",
+    "probs": {
+      "Anthracnose": 0.09524941444396973,
+      "Fruit Fly": 0.8435490727424622,
+      "Healthy Guava": 0.06120150163769722
+    }
+  }
+]

@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row gy-4">
+  <div class="col-12">
+    <div class="hero card p-4 shadow-sm">
+      <div class="d-flex align-items-center justify-content-between flex-wrap">
+        <div>
+          <h1 class="h3 mb-1 brand-title-lg" data-i18n="heroTitle">Guava Disease Detection</h1>
+          <p class="text-muted mb-0" data-i18n="heroSubtitle">AI-powered identification of Anthracnose, Fruit Fly & Healthy Guava</p>
+        </div>
+        <div class="mt-3 mt-lg-0">
+          <button class="btn btn-outline-primary me-2" id="exampleBtn" data-i18n="tryExample">Try Example</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal" data-i18n="uploadImage">Upload Image</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-7">
+    <div class="card p-3 shadow-sm">
+      <h5 data-i18n="uploadPredict">Upload & Predict</h5>
+      <div id="uploadArea" class="upload-area mt-3">
+        <form id="uploadForm">
+          <div class="drag-box" id="dragBox">
+            <div class="text-center p-4">
+              <i class="fa fa-image fa-3x text-muted"></i>
+              <p class="mt-3 text-muted" id="dragText" data-i18n="dragDropText">Drag & Drop images here, or click to select (max 5, 5MB each)</p>
+              <input type="file" id="fileInput" name="files[]" multiple accept=".jpg,.jpeg,.png" class="d-none">
+            </div>
+          </div>
+
+          <div id="thumbs" class="mt-3 row g-2"></div>
+
+          <div class="d-flex gap-2 mt-3 flex-wrap">
+            <button type="button" class="btn btn-outline-secondary" id="clearBtn" data-i18n="clear">Clear</button>
+            <button type="submit" class="btn btn-primary" id="predictBtn" data-i18n="predict">Predict</button>
+            <div id="loader" class="ms-3 align-self-center d-none">
+              <div class="spinner-border text-primary" role="status"></div>
+            </div>
+          </div>
+        </form>
+
+        <div id="resultArea" class="mt-4 d-none">
+          <h6 data-i18n="result">Result</h6>
+          <div id="resultCard" class="p-3 border rounded">
+            <div id="resultLabel" class="fw-bold"></div>
+            <canvas id="probChart" height="120"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-3 mt-3 shadow-sm">
+      <h5 data-i18n="history">History</h5>
+      <div id="historyGrid" class="row g-2 mt-2"></div>
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="card p-3 shadow-sm">
+      <h5 data-i18n="information">Information</h5>
+      <p data-i18n="supportedDiseases">Use this tool to quickly identify guava conditions. Supported:</p>
+      <ul>
+        <li><strong data-i18n="anthracnose">Anthracnose</strong> – <span data-i18n="anthracnoseDesc">fungal lesions</span></li>
+        <li><strong data-i18n="fruitFly">Fruit Fly</strong> – <span data-i18n="fruitFlyDesc">pest damage</span></li>
+        <li><strong data-i18n="healthyGuava">Healthy Guava</strong> – <span data-i18n="healthyGuavaDesc">no disease</span></li>
+      </ul>
+
+      <hr>
+      <h6 data-i18n="uploadTips">Upload Tips</h6>
+      <ul>
+        <li data-i18n="tip1">Good lighting improves accuracy</li>
+        <li data-i18n="tip2">Single fruit per image is best</li>
+        <li data-i18n="tip3">Use close-up of fruit surface</li>
+      </ul>
+    </div>
+
+    <div class="card p-3 mt-3 shadow-sm">
+      <h5 data-i18n="developerPanel">Developer</h5>
+      <p data-i18n="modelInfo">Model: EfficientNetB0 · Input: 100×100 · Output: 3 classes</p>
+      <a href="/developer" class="btn btn-outline-primary btn-sm" data-i18n="moreDetails">More details</a>
+    </div>
+  </div>
+</div>
+
+<!-- Upload modal (for mobile) -->
+<div class="modal fade" id="uploadModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h5 class="modal-title" data-i18n="uploadImage">Upload images</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="drag-box" id="dragBoxModal" style="min-height:180px"></div>
+        <div id="thumbsModal" class="row g-2 mt-2"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="close">Close</button>
+        <button id="modalPredict" class="btn btn-primary" data-i18n="predict">Predict</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
